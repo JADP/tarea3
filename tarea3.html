@@ -5,35 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Clientes</title>
     <link rel="stylesheet" href="tarea3.css">
+    <script type="text/javascript">
+        function validarFormulario(event) {
+            event.preventDefault(); // Evita el envío del formulario
+    
+            var ced = document.getElementById('cedula').value;
+            var nom = document.getElementById('nombre').value;
+            var ap = document.getElementById('apellido').value;
+    
+            if (ced === "") {
+                alert("Por favor, escribe tu número de cedula.");
+                return false;
+            }
+    
+            if (nom === "") {
+                alert("Por favor, escribe tu nombre.");
+                return false;
+            }
+    
+            if (ap === "") {
+                alert("Por favor, escribe tu apellido.");
+                return false;
+            }
+    
+            // Si todo está bien, se puede enviar el formulario
+            alert("Formulario enviado correctamente.");
+            return true;
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('formulario').addEventListener('submit', validarFormulario);
+        });
+    </script>
 </head>
 <body>
     <h2>Formulario de Registro de Clientes</h2>
     
-        <form action="/submit" method="post">
+        <form action="/submit" method="post" id="formulario">
         
             <div class="contenedor">
             <label for="cedula">Cédula:</label>
-            <input type="text" id="cedula" name="cedula" required value="1234567890"><br><br>
+            <input type="text" id="cedula" name="cedula"  ><br><br>
             </div>   
         
             <div class="contenedor">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required value="JAVIER ANTONIO"><br><br>
+            <input type="text" id="nombre" name="nombre"  ><br><br>
             </div>
         
             <div class="contenedor">
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required value="DÍAZ POSLIGUA"><br><br>
+            <input type="text" id="apellido" name="apellido"  ><br><br>
             </div>
         
             <div class="contenedor">
             <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" required value="ULEAM"><br><br>
+            <input type="text" id="direccion" name="direccion"  ><br><br>
             </div>
         
             <div class="contenedor">
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" required value="JAVIER.DIAZ@HOTMAIL.COM"><br><br>
+            <input type="email" id="correo" name="correo"  ><br><br>
             </div>
         
             <div class="contenedor">
@@ -43,10 +75,11 @@
         
             <div class="contenedor">
             <label for="ciudad">Ciudad:</label>
-            <input type="text" id="ciudad" name="ciudad" required value="MANTA"><br><br>
+            <input type="text" id="ciudad" name="ciudad"  ><br><br>
             <input type="submit" value="Registrar">
           
         </form><br>
     </div>
 </body>
 </html>
+
